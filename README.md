@@ -1,4 +1,4 @@
-### 0. tree
+### 0.tree
 ```
 ├── config
 │   ├── webpack.base.config.js
@@ -20,12 +20,12 @@
 ```
 
 
-### 1. npm run build
+### 1.npm run build
 - npm i webpack -S
 - npm i webpack-cli -S
 - npm run build
 
-### 2. npm run dev
+### 2.npm run dev
 - npm i webpack-dev-server -D
 
 
@@ -33,7 +33,7 @@
 > -S --save 保存到dependencies版本信息,公用包
 
 
-### 3. 引入vue
+### 3.引入vue
 - webpack.dev.config.js加入 
 ```js
 resolve:{
@@ -65,7 +65,7 @@ var app = new Vue({
 </body>
 ```
 
-### 4. 引入scss+css
+### 4.引入scss+css
 
 - npm i node-sass css-loader vue-style-loader sass-loader -D
 
@@ -128,7 +128,7 @@ module: {
 
 
 
-### 5. 引入图片资源
+### 5.引入图片资源
 
 - npm i file-loader -D
 - webpack.config.js添加一个loader
@@ -167,7 +167,7 @@ Vue.component('my-component', {
 ```
 
 
-### 6. 单文件组件
+### 6.单文件组件
 
 - npm i vue-loader vue-template-compiler -D
 
@@ -238,7 +238,7 @@ export default {
 </style>
 ```
 
-### 7. 调试source-map
+### 7.调试source-map
 
 - webpack.config.js
 
@@ -254,7 +254,7 @@ module.exports = {
 ```
 
 
-### 7. 打包发布(待实践)
+### 8.打包发布(待实践)
 
 - cross-env
 npm i cross-env --save-dev
