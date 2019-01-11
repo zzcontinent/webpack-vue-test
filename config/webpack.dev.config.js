@@ -11,5 +11,10 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         overlay: true
+    },
+    resolve:{
+        alias:{
+            'vue$':'vue/dist/vue.js'
+        }
     }
 };

@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --hot --config ./config/webpack.dev.config.js",
-    "build": "webpack --config ./config/webpack.base.config.js"
+    "dev": "webpack-dev-server --open --hot --mode development --config ./config/webpack.dev.config.js",
+    "build": "webpack --mode production --config ./config/webpack.base.config.js"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "vue": "^2.5.21",
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
