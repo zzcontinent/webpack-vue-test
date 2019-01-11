@@ -4,6 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/main.js'), // 项目的入口文件，webpack会从main.js开始，把所有依赖的js都加载打包
+    devtool: '#eval-source-map',
     output: {
         path: path.resolve(__dirname, '../dist'), // 项目的打包文件路径
         publicPath: '/dist/', // 通过devServer访问路径
@@ -13,14 +14,13 @@ module.exports = {
         historyApiFallback: true,
         overlay: true
     },
-    resolve:{
-        alias:{
-            'vue$':'vue/dist/vue.js'
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.js'
         }
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.css$/,
                 use: [
                     'vue-style-loader',
@@ -70,7 +70,7 @@ module.exports = {
             }
         ]
     },
-    plugins:[
+    plugins: [
         new VueLoaderPlugin()
     ]
 };

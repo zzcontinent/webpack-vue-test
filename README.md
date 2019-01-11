@@ -1,9 +1,9 @@
-### npm run build
+### 1. npm run build
 - npm i webpack -S
 - npm i webpack-cli -S
 - npm run build
 
-### npm run dev
+### 2. npm run dev
 - npm i webpack-dev-server -D
 
 
@@ -11,7 +11,7 @@
 > -S --save 保存到dependencies版本信息,公用包
 
 
-### 引入vue
+### 3. 引入vue
 - webpack.dev.config.js加入 
 ```js
 resolve:{
@@ -43,7 +43,7 @@ var app = new Vue({
 </body>
 ```
 
-### 引入scss+css
+### 4. 引入scss+css
 
 - npm i node-sass css-loader vue-style-loader sass-loader -D
 
@@ -106,7 +106,7 @@ module: {
 
 
 
-### 引入图片资源
+### 5. 引入图片资源
 
 - npm i file-loader -D
 - webpack.config.js添加一个loader
@@ -145,7 +145,7 @@ Vue.component('my-component', {
 ```
 
 
-### 单文件组件
+### 6. 单文件组件
 
 - npm i vue-loader vue-template-compiler -D
 
@@ -214,4 +214,54 @@ export default {
   }
 }
 </style>
+```
+
+### 7. 调试source-map
+
+- webpack.config.js
+
+```js
+module.exports = {
+    entry: ['babel-polyfill', './src/main.js'],
+    // 省略其他...
+
+    devtool: '#eval-source-map'
+};
+
+
+```
+
+
+### 7. 打包发布(待实践)
+
+- cross-env
+npm i cross-env --save-dev
+```js
+"scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+}
+```
+
+- webpack.base.config.js
+```js
+var path = require('path');
+var webpack = require('webpack');
+
+module.exports = {
+    // 省略...
+}
+
+if (process.env.NODE_ENV === 'production') {
+    module.exports.devtool = '#source-map';
+    module.exports.plugins = (module.exports.plugins || []).concat([
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: '"production"'
+        }
+      }),
+      new webpack.optimize.UglifyJsPlugin(),
+    ])
+  }
+  
 ```
