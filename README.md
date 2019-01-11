@@ -13,7 +13,7 @@
 
 ### 引入vue
 - webpack.dev.config.js加入 
-```
+```js
 resolve:{
     alias:{
         'vue$':'vue/dist/vue.js'
@@ -22,7 +22,7 @@ resolve:{
 ```
 
 - main.js
-```
+```js
 import Vue from 'vue'
 
 var app = new Vue({
@@ -34,7 +34,7 @@ var app = new Vue({
 ```
 
 - index.html
-```
+```html
 <body>
     <div id="app">
         {{msg}}
@@ -49,7 +49,7 @@ var app = new Vue({
 
 - 匹配css
 
-```
+```js
 module: {
         rules: [
             {
@@ -63,7 +63,6 @@ module: {
     }
 ```
 
-```
 匹配后缀名为css的文件,然后分别用css-loader，vue-style-loader去解析
 解析器的执行顺序是从下往上(先css-loader再vue-style-loader)
 
@@ -72,10 +71,10 @@ module: {
 css-loader使得我们可以用模块化的写法引入css,vue-style-loader会将引入的css插入到html页面里的style标签里
 
 要引入scss也是同理的配置写法
-```
+
 
 - 匹配scss+sass
-```
+```js
 module: {
         rules: [
             {
@@ -111,7 +110,7 @@ module: {
 
 - npm i file-loader -D
 - webpack.config.js添加一个loader
-```
+```js
 {
     test: /\.(png|jpg|gif|svg)$/,
     loader: 'file-loader',
@@ -122,7 +121,7 @@ module: {
 ```
 
 - main.js
-```
+```js
 Vue.component('my-component', {
   template: '<img :src="url" />',
   data() {
@@ -134,7 +133,7 @@ Vue.component('my-component', {
 ```
 
 - index.html
-```
+```html
 <body>
     <div id="app">
         {{message}}
@@ -152,7 +151,7 @@ Vue.component('my-component', {
 
 - 添加一个vue-loader
 
-```
+```js
 {
     test: /\.vue$/,
     loader: 'vue-loader',
@@ -174,7 +173,7 @@ Vue.component('my-component', {
 ```
 
 - App.vue
-```
+```js
 <template>
   <div id="app">
     <h1>{{ msg }}</h1>
