@@ -1,3 +1,25 @@
+### 0. tree
+```
+├── config
+│   ├── webpack.base.config.js
+│   └── webpack.dev.config.js
+├── dist
+├── index.html
+├── node_modules
+├── package.json
+├── package-lock.json
+├── README.md
+└── src
+    ├── App.vue
+    ├── img
+    │   └── zzmx.jpg
+    ├── main.js
+    ├── style
+    │   └── common.scss
+    └── util.js
+```
+
+
 ### 1. npm run build
 - npm i webpack -S
 - npm i webpack-cli -S
